@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content" 
+    android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical"
+    android:background="@drawable/background">
+    
+	<ImageView android:id="@+id/logo"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_marginBottom="0dip" android:layout_marginTop="50dip"
+		android:layout_marginLeft="20dip" android:layout_marginRight="20dip"
+		android:layout_centerHorizontal="true" android:layout_alignParentTop="true"
+    	android:src="@drawable/logo"
+    	android:scaleType="centerInside" android:contentDescription="@string/app_name" />
+
+    <Button android:id="@+id/btnmagneticcard"
+		android:layout_width="fill_parent" android:layout_height="45dip"
+		android:layout_marginBottom="0dip" android:layout_marginTop="30dip"
+		android:layout_marginLeft="50dip" android:layout_marginRight="50dip"
+		android:layout_centerHorizontal="true" android:layout_below="@+id/logo"
+		android:text="@string/magneticcard" android:textSize="16sp"
+		android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btniccard"
+		android:layout_width="fill_parent" android:layout_height="45dip"
+		android:layout_marginBottom="0dip" android:layout_marginTop="20dip"
+		android:layout_marginLeft="50dip" android:layout_marginRight="50dip"
+		android:layout_centerHorizontal="true" android:layout_below="@+id/btnmagneticcard"
+		android:text="@string/iccard" android:textSize="16sp"
+		android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnrfcard"
+		android:layout_width="fill_parent" android:layout_height="45dip"
+		android:layout_marginBottom="0dip" android:layout_marginTop="20dip"
+		android:layout_marginLeft="50dip" android:layout_marginRight="50dip"
+		android:layout_centerHorizontal="true" android:layout_below="@+id/btniccard"
+		android:text="@string/rfcard" android:textSize="16sp"
+		android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnm1card"
+		android:layout_width="fill_parent" android:layout_height="45dip"
+		android:layout_marginBottom="0dip" android:layout_marginTop="20dip"
+		android:layout_marginLeft="50dip" android:layout_marginRight="50dip"
+		android:layout_centerHorizontal="true" android:layout_below="@+id/btnrfcard"
+		android:text="@string/m1card" android:textSize="16sp"
+		android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnsettings"
+		android:layout_width="fill_parent" android:layout_height="45dip"
+		android:layout_marginBottom="0dip" android:layout_marginTop="20dip"
+		android:layout_marginLeft="50dip" android:layout_marginRight="50dip"
+		android:layout_centerHorizontal="true" android:layout_below="@+id/btnm1card"
+		android:text="@string/settings" android:textSize="16sp"
+		android:background="@drawable/button" />
+</RelativeLayout>

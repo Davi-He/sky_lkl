@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical"
+    android:background="@drawable/background">
+    
+    <Button android:id="@+id/btnsetpwd"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+	    android:text="@string/setpwd" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnsetautoread"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_centerHorizontal="true" android:layout_alignParentTop="true"
+	    android:text="@string/setautoread" android:textSize="16sp"
+	    android:background="@drawable/button" />
+
+    <Button android:id="@+id/btnsetmanualread"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentRight="true" android:layout_alignParentTop="true"
+	    android:text="@string/setmanualread" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnreadcard"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentLeft="true" android:layout_below="@+id/btnsetpwd"
+	    android:text="@string/readcard" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnwritecard"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentRight="true" android:layout_below="@+id/btnsetpwd"
+	    android:text="@string/writecard" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <TextView android:id="@+id/status"
+        android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:layout_marginBottom="0dip" android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" android:layout_marginTop="10dip"
+        android:layout_below="@+id/btnreadcard"
+        android:singleLine="false" android:minLines="20" android:maxLines="20"
+        android:text="" android:textSize="16sp" android:textColor="@color/black" android:scrollbars="vertical" />
+
+    <Button android:id="@+id/btnback"
+	    android:layout_width="fill_parent" android:layout_height="45dip"
+	    android:layout_marginBottom="20dip" android:layout_marginTop="0dip"
+	    android:layout_marginLeft="10dip" android:layout_marginRight="10dip"
+	    android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
+	    android:text="@string/backmain" android:textSize="16sp"
+	    android:background="@drawable/button" />
+</RelativeLayout>

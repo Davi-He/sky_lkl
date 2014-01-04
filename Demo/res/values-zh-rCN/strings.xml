@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Demo</string>
+
+    <string name="magneticcard">磁卡</string>
+    <string name="iccard">IC卡</string>
+    <string name="rfcard">RF卡</string>
+    <string name="m1card">M1卡</string>
+    <string name="settings">设定</string>
+    
+    <!-- Settings -->
+    <string name="english">英文</string>
+    <string name="chinese">中文</string>
+    
+    <string name="plaintext">明文模式</string>
+    <string name="des">3DES模式</string>
+    <string name="dukpt">DUKPT模式</string>
+    <string name="wsn">设置SN</string>
+    <string name="rsn">读取SN</string>
+    <string name="clear">清除缓存</string>
+    
+    <string name="backmain">返回主页</string>
+
+    <!-- M1 Card -->
+    <string name="setpwd">设置密码</string>
+    <string name="setautoread">设置自动读卡</string>
+    <string name="setmanualread">设置手动读卡</string>
+    <string name="readcard">读卡</string>
+    <string name="writecard">写卡</string>
+
+    <!-- Magnetic Card -->
+    <string name="cardno">卡号</string>
+    <string name="holder">持卡人</string>
+    <string name="expdate">有效期</string>
+
+</resources>

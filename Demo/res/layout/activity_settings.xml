@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content" 
+    android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical"
+    android:background="@drawable/background">
+    
+    <Button android:id="@+id/btnen"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+	    android:text="@string/english" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btncn"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentRight="true" android:layout_alignParentTop="true"
+	    android:text="@string/chinese" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnplaintext"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentLeft="true" android:layout_below="@+id/btnen"
+	    android:text="@string/plaintext" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btndes"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_centerHorizontal="true" android:layout_below="@+id/btnen"
+	    android:text="@string/des" android:textSize="16sp"
+	    android:background="@drawable/button" />
+
+    <Button android:id="@+id/btndukpt"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentRight="true" android:layout_below="@+id/btnen"
+	    android:text="@string/dukpt" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnwsn"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentLeft="true" android:layout_below="@+id/btnplaintext"
+	    android:text="@string/wsn" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnrsn"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_centerHorizontal="true" android:layout_below="@+id/btnplaintext"
+	    android:text="@string/rsn" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <Button android:id="@+id/btnclear"
+	    android:layout_width="110dip" android:layout_height="45dip"
+	    android:layout_marginBottom="0dip" android:layout_marginTop="10dip"
+	    android:layout_marginLeft="5dip" android:layout_marginRight="5dip"
+	    android:layout_alignParentRight="true" android:layout_below="@+id/btnplaintext"
+	    android:text="@string/clear" android:textSize="16sp"
+	    android:background="@drawable/button" />
+    
+    <TextView android:id="@+id/status"
+        android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:layout_marginBottom="0dip" android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" android:layout_marginTop="10dip"
+        android:layout_below="@+id/btnwsn"
+        android:singleLine="false" android:minLines="12" android:maxLines="12"
+        android:text="" android:textSize="16sp" android:textColor="@color/black" android:scrollbars="vertical" />
+    
+    <Button android:id="@+id/btnback"
+	    android:layout_width="fill_parent" android:layout_height="45dip"
+	    android:layout_marginBottom="20dip" android:layout_marginTop="0dip"
+	    android:layout_marginLeft="10dip" android:layout_marginRight="10dip"
+	    android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
+	    android:text="@string/backmain" android:textSize="16sp"
+	    android:background="@drawable/button" />
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Demo</string>
+
+    <string name="magneticcard">Magnetic Card</string>
+    <string name="iccard">IC Card</string>
+    <string name="rfcard">RF Card</string>
+    <string name="m1card">M1 Card</string>
+    <string name="settings">Settings</string>
+
+    <!-- Settings -->
+    <string name="english">English</string>
+    <string name="chinese">Chinese</string>
+    
+    <string name="plaintext">Plain Text</string>
+    <string name="des">3DES</string>
+    <string name="dukpt">DUKPT</string>
+    <string name="wsn">Write SN</string>
+    <string name="rsn">Read SN</string>
+    <string name="clear">Clear Param</string>
+    
+    <string name="backmain">Back to the main page</string>
+
+    <!-- M1 Card -->
+    <string name="setpwd">Set Password</string>
+    <string name="setautoread">Set Auto Read</string>
+    <string name="setmanualread">Set Manual Read</string>
+    <string name="readcard">Read Card</string>
+    <string name="writecard">Write Card</string>
+    
+    <!-- Magnetic Card -->
+    <string name="cardno">Card No.</string>
+    <string name="holder">Holder</string>
+    <string name="expdate">Exp Date</string>
+
+</resources>
