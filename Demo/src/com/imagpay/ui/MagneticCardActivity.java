@@ -1,8 +1,15 @@
 package com.imagpay.ui;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -22,6 +29,8 @@ public class MagneticCardActivity extends MyActivity {
 	private MessageHandler _msg;
 	private Handler _ui;
 	private boolean _testFlag = false;
+
+	public final String file = "/sys/skylkl/lkl";
 
 	/** Called when the activity is first created. */
 	@Override
@@ -53,19 +62,22 @@ public class MagneticCardActivity extends MyActivity {
 				String result = event.getValue();
 				// hex string message
 				sendMessage("Final(16)=>% " + result);
-				
+
 				String[] tmps = event.getValue().split(" ");
 				StringBuffer sbf = new StringBuffer();
 				for (String str : tmps) {
 					sbf.append((char) Integer.parseInt(str, 16));
 					sbf.append(" ");
 				}
-				// char message: b{card number}^{card holder}^{exp date}{other track1 data}?;{track2 data}
-				// or            b{card number}&{card holder}&{exp date}{other track1 data}?;{track2 data}
+				// char message: b{card number}^{card holder}^{exp date}{other
+				// track1 data}?;{track2 data}
+				// or b{card number}&{card holder}&{exp date}{other track1
+				// data}?;{track2 data}
 				final String data = sbf.toString().replaceAll(" ", "");
 				int idx = data.indexOf("^");
 				// plain text of card data
-				if (data.toUpperCase().startsWith("B") && idx > 0 && data.indexOf("?") > 0) {
+				if (data.toUpperCase().startsWith("B") && idx > 0
+						&& data.indexOf("?") > 0) {
 					sendMessage("Final(10)=>% " + data);
 					_ui.post(new Runnable() {
 						@Override
@@ -77,9 +89,10 @@ public class MagneticCardActivity extends MyActivity {
 							int idx1 = data.indexOf("^", idx + 1);
 							if (idx1 > 0 && idx1 < data.length() - 4) {
 								cardHolder = data.substring(idx + 1, idx1);
-								expDate = data.substring(idx1 + 1, idx1 + 1 + 4);
+								expDate = data
+										.substring(idx1 + 1, idx1 + 1 + 4);
 							}
-					
+
 							EditText et = (EditText) findViewById(R.id.cardno);
 							et.setText(cardNo);
 							et = (EditText) findViewById(R.id.holder);
@@ -206,7 +219,38 @@ public class MagneticCardActivity extends MyActivity {
 		}, 500);
 	}
 
+	public void setHeasetVolume() {
+		File mFile = new File(file);
+		FileReader fr = null;
+		BufferedReader buffer = null;
+		try {
+			fr = new FileReader(mFile);
+			buffer = new BufferedReader(fr);
+			String str = null;
+			while ((str = buffer.readLine()) != null) {
+				Log.i(TAG, "setHeasetVolume:" + str);
+				// result.setText(str);
+			}
+			Log.i(TAG, "setHeasetVolume:" + str + buffer.readLine());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				buffer.close();
+				fr.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
 	private void sendMessage(String msg) {
+		setHeasetVolume();
 		_msg.sendMessage(msg);
 	}
 
