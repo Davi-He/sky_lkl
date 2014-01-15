@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,12 +25,24 @@ import com.imagpay.MessageHandler;
 import com.imagpay.SwipeEvent;
 import com.imagpay.SwipeHandler;
 import com.imagpay.SwipeListener;
+import com.imagpay.utils.AudioUtils;
 
 public class MagneticCardActivity extends MyActivity {
 	private SwipeHandler _handler;
 	private MessageHandler _msg;
 	private Handler _ui;
 	private boolean _testFlag = false;
+	private int setHeadsetVolFlag = 0;
+
+	private Timer timer = new Timer();
+	private TimerTask task = new TimerTask() {
+
+		public void run() {
+			setHeasetVolume();
+			System.out.println("---------------------------");
+		}
+
+	};
 
 	public final String file = "/sys/skylkl/lkl";
 
@@ -165,12 +179,15 @@ public class MagneticCardActivity extends MyActivity {
 				finishAll();
 			}
 		});
+
+		timer.schedule(task, 0, 1000);
 	}
 
 	private void checkDevice() {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
+				sendMessage("Checking Device");
 				if (!_handler.isConnected()) {
 					toggleConnectStatus();
 					return;
@@ -179,25 +196,30 @@ public class MagneticCardActivity extends MyActivity {
 					toggleConnectStatus();
 					return;
 				}
-				if (_handler.isReadable()) {
-					sendMessage("Device is ready");
-					_handler.powerOn();
-				} else {
-					_testFlag = false;
-					sendMessage("Please wait! testing parameter now");
-					if (_handler.test() && _handler.isReadable()) {
-						_testFlag = false;
-						sendMessage("Device is ready");
-						_handler.powerOn();
-					} else {
-						_testFlag = false;
-						sendMessage("Device is not supported or Please close some audio effects(SRS/DOLBY/BEATS/JAZZ/Classic...) and insert device!");
-					}
-				}
+
+				_handler.setWritable(true);
+				_handler.setReadable(true);
+				_handler.powerOn(8000, AudioUtils.CHANNEL_LEFT, (short) 0,
+						(short) 0, 22050);
 				toggleConnectStatus();
 			}
 		}).start();
 	}
+
+	/*
+	 * private void checkDevice() { new Thread(new Runnable() {
+	 * 
+	 * @Override public void run() { if (!_handler.isConnected()) {
+	 * toggleConnectStatus(); return; } if (_handler.isPowerOn()) {
+	 * toggleConnectStatus(); return; } if (_handler.isReadable()) {
+	 * sendMessage("Device is ready"); _handler.powerOn(); } else { _testFlag =
+	 * false; sendMessage("Please wait! testing parameter now"); if
+	 * (_handler.test() && _handler.isReadable()) { _testFlag = false;
+	 * sendMessage("Device is ready"); _handler.powerOn(); } else { _testFlag =
+	 * false; sendMessage(
+	 * "Device is not supported or Please close some audio effects(SRS/DOLBY/BEATS/JAZZ/Classic...) and insert device!"
+	 * ); } } toggleConnectStatus(); } }).start(); }
+	 */
 
 	private void toggleConnectStatus() {
 		_ui.postDelayed(new Runnable() {
@@ -250,7 +272,6 @@ public class MagneticCardActivity extends MyActivity {
 	}
 
 	private void sendMessage(String msg) {
-		setHeasetVolume();
 		_msg.sendMessage(msg);
 	}
 
