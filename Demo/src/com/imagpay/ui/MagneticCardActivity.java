@@ -38,8 +38,8 @@ public class MagneticCardActivity extends MyActivity {
 	private TimerTask task = new TimerTask() {
 
 		public void run() {
-			setHeasetVolume();
-			System.out.println("---------------------------");
+			//setHeasetVolume();
+			//System.out.println("---------------------------");
 		}
 
 	};
@@ -59,7 +59,12 @@ public class MagneticCardActivity extends MyActivity {
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-		_handler = new SwipeHandler(this);
+		timer.schedule(task, 0, 1000);
+		_handler = new SwipeHandler(this) {
+			public boolean isConnected() {
+				return true;
+			}
+		};
 		// only read magnetic card
 		_handler.setReadonly(true);
 		_msg = new MessageHandler((TextView) findViewById(R.id.status));
@@ -180,13 +185,14 @@ public class MagneticCardActivity extends MyActivity {
 			}
 		});
 
-		timer.schedule(task, 0, 1000);
+//		timer.schedule(task, 0, 1000);
 	}
 
 	private void checkDevice() {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
+				//setHeasetVolume();
 				sendMessage("Checking Device");
 				if (!_handler.isConnected()) {
 					toggleConnectStatus();
